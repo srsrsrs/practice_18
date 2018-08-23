@@ -1,6 +1,7 @@
 from common_config import headers,cookies
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 def read_questions(question_id):
@@ -10,6 +11,11 @@ def read_questions(question_id):
     homeSoup = BeautifulSoup(homeReq.text, 'lxml')
     s.close()
     return homeSoup
+
+
+def convert_soup_to_json(soup):
+    return json.loads(soup.p.text)
+
 
 if __name__=='__main__':
     soup = read_questions(287430572)
