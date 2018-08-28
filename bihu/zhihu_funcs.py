@@ -2,6 +2,7 @@ from common_config import headers,cookies
 import requests
 from bs4 import BeautifulSoup
 import json
+import pandas as pd
 
 
 def read_questions(question_id):
@@ -19,4 +20,4 @@ def convert_soup_to_json(soup):
 
 if __name__=='__main__':
     soup = read_questions(287430572)
-    print(soup)
+    print(pd.DataFrame(convert_soup_to_json(soup)['data']))
