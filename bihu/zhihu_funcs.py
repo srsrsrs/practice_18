@@ -1,4 +1,4 @@
-from common_config import headers,cookies
+from common_config import headers,cookies,conn_106_mysql
 import requests
 from bs4 import BeautifulSoup
 import json
